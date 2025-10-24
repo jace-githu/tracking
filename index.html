@@ -325,8 +325,10 @@
       
       try {
         // Apps Script Web App 호출
-        const response = await fetch(`${APPS_SCRIPT_URL}?phone=${encodeURIComponent(phoneNumber)}`, {
+        const url = APPS_SCRIPT_URL + '?phone=' + encodeURIComponent(phoneNumber);
+        const response = await fetch(url, {
           method: 'GET',
+          mode: 'cors',
           headers: {
             'Content-Type': 'application/json'
           }
